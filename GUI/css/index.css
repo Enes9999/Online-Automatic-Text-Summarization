@@ -67,7 +67,7 @@
   flex-wrap: wrap;
 }.summaryGenerated h3{
   margin-left: 4.5%;
-  margin-top: 9%;
+  margin-top: 0px;
   font-family: Arial;
   color: #808080;
 }.generateButton{
