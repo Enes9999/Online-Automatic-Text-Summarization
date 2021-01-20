@@ -32,7 +32,8 @@
 	}
 </style>
 </head>
-<body>
+<body> 
+	
 	<div class="topnav" id="myTopnav">
   <a href="login.php" class="active">Log In</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -44,20 +45,20 @@
 	<div class="limiter" style="padding: 50px;">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" style="background-color: transparent;">
+				<form action="login.php?action=signup" method="POST" class="login100-form validate-form" style="background-color: transparent;">
 					<span class="login100-form-title p-b-43">
 						Sign Up
 					</span>
 					
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid name is required: Hana">
-						<input class="input100" type="text" name="email">
+						<input class="input100" type="text" name="name">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Name</span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Valid last name is required: Gashi">
-						<input class="input100" type="text" name="email">
+						<input class="input100" type="text" name="lastname">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Last Name</span>
 					</div>
