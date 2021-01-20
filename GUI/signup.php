@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/pencil.png"/>
+	<link rel="icon" type="image//png" href="images/pencil.png">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -35,7 +35,7 @@
 <body>
 
 
-	<!-- php code-->
+	<!-- sign up code-->
 
 	<?php
     require('db.php');
@@ -56,21 +56,21 @@
         $password = mysqli_real_escape_string($con, $password);
         
         $gender = stripslashes($_REQUEST['gender']);
-        $gender = mysqli_real_escape_string($con, $password);
+        $gender = mysqli_real_escape_string($con, $gender);
         
         $birthdate = date("Y-m-d H:i:s");
         $query    = "INSERT into `users` (name, lastname, email, password, gender, birthdate)
-                     VALUES ('$name', '" . md5($lastname) . "', '$email', '$password', '$gender', 'birthdate')";
+                     VALUES ('$name', '$lastname' , '$email', '$password', '$gender', '$birthdate')";
         $result   = mysqli_query($con, $query);
         if ($result) {
-            echo "<div class='form'>
+            echo "<div class='login100-form validate-form'>
                   <h3>You are registered successfully.</h3><br/>
                   <p class='link'>Click here to <a href='login.php'>Login</a></p>
                   </div>";
         } else {
-            echo "<div class='form'>
+            echo "<div class='login100-form validate-form'>
                   <h3>Required fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                  <p class='link'>Click here to <a href='signup.php'>signup</a> again.</p>
                   </div>";
         }
     } else {

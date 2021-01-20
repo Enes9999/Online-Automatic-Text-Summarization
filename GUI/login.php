@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image//png" href="images/pencil.png">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -28,6 +28,39 @@
 <!--===============================================================================================-->
 </head>
 <body>
+
+
+	<!-- login code -->
+
+	<?php
+    require('db.php');
+    session_start();
+    // When form submitted, check and create user session.
+    if (isset($_POST['email'])) {
+        $email = stripslashes($_REQUEST['email']);    // removes backslashes
+        $email = mysqli_real_escape_string($con, $email);
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($con, $password);
+        // Check user is exist in the database
+        $query    = "SELECT * FROM `users` WHERE email='$email'
+                     AND password='" . md5($password) . "'";
+        $result = mysqli_query($con, $query) or die(mysql_error());
+        $rows = mysqli_num_rows($result);
+        if ($rows == 1) {
+            $_SESSION['email'] = $email;
+
+            // Redirect to user dashboard page
+            header("Location: dashboard.php");
+        } else {
+            echo "<div class='login100-form validate-form'>
+                  <h3>Incorrect Username/password.</h3><br/>
+                  <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
+                  </div>";
+        }
+    } else {
+?>
+
+
 	<div class="topnav" id="myTopnav">
   <a href="login.php" class="active">Log In</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -39,7 +72,7 @@
 	<div class="limiter" style="padding: 50px;">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" style="background-color: transparent;">
+				<form class="login100-form validate-form" style="background-color: transparent;" method="post" name="login">
 					<span class="login100-form-title p-b-43">
 						Log In 
 					</span>
@@ -53,34 +86,20 @@
 					
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="password">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
 
-					<div class="flex-sb-m w-full p-t-3 p-b-32">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
-					</div>
-			
+					<br>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit">
 							Login
 						</button>
 					</div>
-					
-					<p style="text-align: center; margin-bottom: -30px;"> or</p>
+					<br>
+					<p style="text-align: center; margin-bottom: -30px;"> Don't have an account?</p> 
 
 					<div class="text-center p-t-46 p-b-20">
 						<button class="signUp100-form-btn">
@@ -88,6 +107,10 @@
 						</button>
 					</div>
 				</form>
+
+				<?php
+				    }
+				?>
 
 				<div class="login100-more" style="background-image: url('images/pencil.png');">
 				</div>
