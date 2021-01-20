@@ -32,8 +32,52 @@
 	}
 </style>
 </head>
-<body> 
-	
+<body>
+
+
+	<!-- php code-->
+
+	<?php
+    require('db.php');
+    // When form submitted, insert values into the database.
+    if (isset($_REQUEST['email'])) {
+        // removes backslashes
+        $email = stripslashes($_REQUEST['email']);
+        //escapes special characters in a string
+        $email = mysqli_real_escape_string($con, $email);
+
+        $name = stripslashes($_REQUEST['name']);
+        $name = mysqli_real_escape_string($con, $name);
+        
+        $lastname = stripslashes($_REQUEST['lastname']);
+    	$lastname = mysqli_real_escape_string($con, $lastname);
+
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($con, $password);
+        
+        $gender = stripslashes($_REQUEST['gender']);
+        $gender = mysqli_real_escape_string($con, $password);
+        
+        $birthdate = date("Y-m-d H:i:s");
+        $query    = "INSERT into `users` (name, lastname, email, password, gender, birthdate)
+                     VALUES ('$name', '" . md5($lastname) . "', '$email', '$password', '$gender', 'birthdate')";
+        $result   = mysqli_query($con, $query);
+        if ($result) {
+            echo "<div class='form'>
+                  <h3>You are registered successfully.</h3><br/>
+                  <p class='link'>Click here to <a href='login.php'>Login</a></p>
+                  </div>";
+        } else {
+            echo "<div class='form'>
+                  <h3>Required fields are missing.</h3><br/>
+                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
+                  </div>";
+        }
+    } else {
+?>
+
+
+
 	<div class="topnav" id="myTopnav">
   <a href="login.php" class="active">Log In</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -45,25 +89,25 @@
 	<div class="limiter" style="padding: 50px;">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="login.php?action=signup" method="POST" class="login100-form validate-form" style="background-color: transparent;">
+				<form class="login100-form validate-form" style="background-color: transparent;" method="POST">
 					<span class="login100-form-title p-b-43">
 						Sign Up
 					</span>
 					
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid name is required: Hana">
+					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="name">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Name</span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid last name is required: Gashi">
+					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="lastname">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Last Name</span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
@@ -71,21 +115,21 @@
 					
 					
 
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="password" name="password">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "You must select one!">
+					<div class="wrap-input100 validate-input">
 						<select name="gender" id="gender" style="width: 100%; height: 100%; border-color: transparent;">
-					    <option value="female" style="margin-left: 10px;">Female</option>
-					    <option value="male"style="margin-left: 10px;">Male</option>
+					    <option value="female" style="margin-left: 10px;" name ="female">Female</option>
+					    <option value="male"style="margin-left: 10px;" name = "male">Male</option>
 					</select>
 						
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "You must write down your date of birth!">
+					<div class="wrap-input100 validate-input">
 						<input class="input100" type="date" name="date">
 						<span class="focus-input100"></span>
 						<span class="label-input100"></span>
@@ -100,6 +144,10 @@
 					</div>
 
 				</form>
+
+				<?php
+   					 }
+				?>
 
 				<div class="login100-more" style="background-image: url('images/pencil.png');">
 				</div>

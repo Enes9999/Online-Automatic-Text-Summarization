@@ -1,34 +1,3 @@
-<?php 
-
-$error = false;
-if(isset($_REQUEST['action'])) {
-	switch($_REQUEST['action']) {
-		case 'login':
-			require_once "./GUI/Authentication.php"; 
-			$valid = Authentication::login($_POST);
-			if($valid) {
-				header('Location: index.php');
-			} else {
-				$error = 'Login failed.';
-			}
-		break;
-		case 'signup':
-			require_once "./GUI/Registration.php"; 
-			$valid = Registration::signup($_POST);
-			if(!$valid) {
-				$error = 'Registration failed.';
-			}
-		break;
-	}		 
-}
-
-$page = 'login';
-require_once "./index.php"; 
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +5,7 @@ require_once "./index.php";
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/pencil.png"/>
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -70,7 +39,7 @@ require_once "./index.php";
 	<div class="limiter" style="padding: 50px;">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="login.php?action=login" method= "POST" class="login100-form validate-form" style="background-color: transparent;">
+				<form class="login100-form validate-form" style="background-color: transparent;">
 					<span class="login100-form-title p-b-43">
 						Log In 
 					</span>
