@@ -1,6 +1,6 @@
 //modify compression/summary percentage
 function ShowAndHide() {
-    var x = document.getElementById('SectionName');
+    var x = document.getElementById('maxSentenceCount');
     if (x.style.display == 'none') {
         x.style.display = 'block';
 
