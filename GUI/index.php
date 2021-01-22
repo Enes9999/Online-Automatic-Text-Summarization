@@ -79,22 +79,31 @@
 
 		<!-- butoni per me modifiku perqindjen -->
 		<button id="close-image" style="margin-left: 440px;" onclick="ShowAndHide()"><img src="images/discount.png" width="50" height="50"></button>
-		<input id="maxSentenceCount" type="range" min="1" max="100" value="50" style="width:50%; display: none; margin-left: 20%; color: yellow;">
+		
 		<!-- butoni per me modifiku perqindjen -->
 
 		<!-- butoni per me kerku keywordsa  -->
 		<button id="close-image" onclick="HideAndShow()" style="margin-left: 0px;"><img src="images/highlighter.png" width="50" height="50"></button>
+
 		<br>
+		
+		<input id="maxSentenceCount" type="range" min="1" max="100" value="50"style="width:50%; display: none; margin-left: 20%; color: yellow;">
+	
+		 
+
+
+
 		<form style="display: none;margin-left: 30px;" id="keywordSection">
-			<p style="font-family: arial;">Type the words:
-				<input type="text" name="keywords" size="20" style="border-radius: 10px; border-color:grey;border-top: none; border-left: none; border-right: none;">
+			<p style="font-family: arial; color: #808080;">Type the words:
+				<input type="text" name="keywords" id ="txt1" size="20" style="border-radius: 10px; border-color:grey;border-top: none; border-left: none; border-right: none;"><input type="button" name="submit" onclick="findKeywords()" value="Go" style="width: 50px; height: 20px; border-radius: 30px; border-color: transparent; margin-left: 10px;">	</p>
 				<br> <br>
-			</p>
+
+				
 		</form>
 		<!-- butoni per me kerku keywordsa  -->
 
 		<br>
-		<textarea id="summary" rows="18" cols="80" readonly></textarea>
+		<textarea id="summary" rows="25" cols="80" readonly></textarea>
 	</div>
 	<script type="text/javascript" src="js/buttonManipulations.js"> </script>
 	
@@ -102,9 +111,14 @@
 	<div id="organized_terms" style="background: white;"></div>
 	<!-- veq let qellon qaty -->
 
+	<footer style="text-align: center; font-family: arial; margin-top: 300px;color:#808080;border-top: 1px solid black; border-color: lightgrey; font-size: 14px; font-weight: bold; ">
+		<p id="footer">
+			© All rights reserved. January, 2021
+		</p>
+	</footer>
 
 
-	
+	<script src="findKeywords.js"></script>
 	<script src="js/main.js"></script>
 </body>
 

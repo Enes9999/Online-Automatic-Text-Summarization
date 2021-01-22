@@ -96,6 +96,11 @@
 	</div>
 	
 	
+	<footer style="text-align: center; font-family: arial; margin-top: 100px;color:#808080;border-top: 1px solid black; border-color: lightgrey; font-size: 15px; ">
+		<p id="footer">
+			© All rights reserved. January, 2021
+		</p>
+	</footer>
 
 	
 	
