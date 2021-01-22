@@ -23,7 +23,6 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 <style type="text/css">
@@ -121,7 +120,7 @@
 	
 
 	<footer style="text-align: center; font-family: arial; margin-top: 100px;color:#808080;border-top: 1px solid black; border-color: lightgrey; font-size: 14px; ">
-		<p id="footer">
+		<p id="footer" style="margin-top: 10px;">
 			© All rights reserved. January, 2021
 		</p>
 	</footer>

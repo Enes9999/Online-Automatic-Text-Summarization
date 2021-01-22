@@ -94,7 +94,7 @@
 
 
 		<form style="display: none;margin-left: 30px;" id="keywordSection">
-			<p style="font-family: arial; color: #808080;">Type the words:
+			<p style=" color: #808080;">Type the words:
 				<input type="text" name="keywords" id ="txt1" size="20" style="border-radius: 10px; border-color:grey;border-top: none; border-left: none; border-right: none;"><input type="button" name="submit" onclick="findKeywords()" value="Go" style="width: 50px; height: 20px; border-radius: 30px; border-color: transparent; margin-left: 10px;">	</p>
 				<br> <br>
 
@@ -105,19 +105,18 @@
 		<br>
 		<textarea id="summary" rows="25" cols="80" readonly></textarea>
 	</div>
-	<script type="text/javascript" src="js/buttonManipulations.js"> </script>
 	
 	<!-- veq let qellon qaty -->
 	<div id="organized_terms" style="background: white;"></div>
 	<!-- veq let qellon qaty -->
 
-	<footer style="text-align: center; font-family: arial; margin-top: 300px;color:#808080;border-top: 1px solid black; border-color: lightgrey; font-size: 14px; font-weight: bold; ">
+	<footer style="text-align: center;  margin-top: 300px;color:#808080;border-top: 1px solid black; border-color: lightgrey; font-size: 14px; font-weight: normal; ">
 		<p id="footer">
 			© All rights reserved. January, 2021
 		</p>
 	</footer>
 
-
+	<script type="text/javascript" src="js/buttonManipulations.js"> </script>
 	<script src="findKeywords.js"></script>
 	<script src="js/main.js"></script>
 </body>
