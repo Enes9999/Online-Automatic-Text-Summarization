@@ -38,7 +38,7 @@
                         // calculate sum from similarity between product of all similarities between
                         // sentence 1 and 2, the PR of sentence2, divided by the sum of all similarities
                         // between sentence2 and all other sentences
-                        if ($denominator_sum !== 0) $sum += $Wji*$pageranks[$secnd_sent]/$denominator_sum;
+                        if ($denominator_sum != 0) $sum += $Wji*$pageranks[$secnd_sent]/$denominator_sum;
                     }
                 }
                 $newrank = $sum;
