@@ -6,10 +6,9 @@
 .topnav {
   background-color: transparent;
   overflow: hidden;
-  font-family: Arial;
-  padding: 0px;
-  margin: 0px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #dab3ff;
+
+
 }
 
 /* Change the color of links on hover */
@@ -17,24 +16,22 @@
   font-weight: bolder;
   background-color: #dab3ff;
   color: white;
+
+
   }
 
 /* Styling of navbar and add an active class to highlight the current page */
 .topnav a.active {
-  border-left: 2px solid #dab3ff; 
   float: right;
   display: block;
   text-align: center;
-  padding: 14px ;
+  
   text-decoration: none;
   font-size: 30px;
   background-color: transparent;
   color:  #dab3ff;
 }
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
-  display: none;
-}
+
 .userInput h1{
   margin-left: 4.5%;
   margin-top: 9%;
@@ -78,7 +75,7 @@
 }.generateButton{
   width: 100px;
   height: 100px;
-  margin-left: 600px;
+  margin-left: 610px;
   margin-top: 50px;
   margin-bottom: -100px;
    outline-color: yellow;

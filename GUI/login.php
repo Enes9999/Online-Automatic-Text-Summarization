@@ -41,8 +41,6 @@
 
 	<div class="topnav" id="myTopnav">
   <a href="login.php" class="active">Log In</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
   </a>
   <a href="index.php"> <img src="images/pencil.png" width="60" height="60" style="border-radius: 50%; margin: 9px; margin-left: 20px;"></a>
 </div>
