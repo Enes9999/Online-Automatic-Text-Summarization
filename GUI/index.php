@@ -39,7 +39,7 @@
 	</script>
 </head>
 
-<body>
+<body id="mouse">
 
 	<div class="topnav" id="myTopnav">
 		<a href="login.php" class="active">Log In</a>
@@ -64,11 +64,14 @@
 		<textarea id="doc" rows="25" cols="80"></textarea>
 	</div>
 
-
+	
 
 	<div class="summaryGenerated">
 		<h1> <b>SUMMARY<b></h1>
 		<h3> <b> KEYWORDS: </b> </h3>
+		<h3>Compressed Text:<span id="countgenerated">0</span>/<span id="count">0</span></h3>
+
+	
 
 		<!-- veq let qellon qaty -->
 		<div id="other_docs" style="display: none;"></div>
@@ -98,6 +101,11 @@
 	<!-- veq let qellon qaty -->
 	<div id="organized_terms" style="background: white;"></div>
 	<!-- veq let qellon qaty -->
+
+
+
+	
+	<script src="js/main.js"></script>
 </body>
 
 </html>
