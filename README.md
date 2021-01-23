@@ -15,7 +15,7 @@ Online Automatic Text Summarization allows the user to sign up for an account. F
 - PHP/MySQL
 
 
-## Contributors
+## Authors
 - Arta Mjeku
 - Enes Pireva
 - Shuajb Qerimi
