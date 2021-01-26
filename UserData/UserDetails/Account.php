@@ -66,6 +66,8 @@ class Profile {
 
         $qry = "SELECT * from users WHERE id = {$id}"; // select query
 
+        $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+
         $data = mysqli_fetch_array($qry);
          
 

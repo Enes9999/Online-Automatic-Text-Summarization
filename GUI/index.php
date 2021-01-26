@@ -35,9 +35,7 @@ if (isset($_REQUEST['action'])) {
 
 <div id="main">
 
-	<div class="generateButton1">
-		<button id="close-image"><img src="images/translate.png" width="80" height="80"></button>
-	</div>
+	
 
 	<br><br><br><br>
 
@@ -68,17 +66,19 @@ if (isset($_REQUEST['action'])) {
 
 		<!-- butoni per me modifiku perqindjen -->
 		<button id="close-image" style="margin-left: 440px;" onclick="ShowAndHide()"><img src="images/discount.png" width="50" height="50"></button>
-		<input id="maxSentenceCount" type="range" min="1" max="100" value="50" style="width:50%; display: none; margin-left: 20%; color: yellow;">
+		<input id="maxSentenceCount"  type="range" min="1" max="100" value="50" style="width:50%; display: none; margin-left: 20%; color: yellow;">
 		<!-- butoni per me modifiku perqindjen -->
 
 		<!-- butoni per me kerku keywordsa  -->
 		<button id="close-image" onclick="HideAndShow()" style="margin-left: 0px;"><img src="images/highlighter.png" width="50" height="50"></button>
 		<br>
 		<form style="display: none;margin-left: 30px;" id="keywordSection">
-			<p style="font-family: arial;">Type the words:
-				<input type="text" name="keywords" size="20" style="border-radius: 10px; border-color:grey;border-top: none; border-left: none; border-right: none;">
+			<br>
+			<p style=" color: #808080; margin-left: 84px;">Type the words:
+				<input type="text" name="keywords" id ="txt1" size="20" style="border:1px solid black; margin-left: 10px;"><button type="button" name="submit" onclick="findKeywords()" value="Go" style="width: 50px; height: 20px; border-radius: 30px; background-color: blue; text-align: center; margin-left: 20px;">Go</button>	</p>
 				<br> <br>
-			</p>
+
+				
 		</form>
 		<!-- butoni per me kerku keywordsa  -->
 

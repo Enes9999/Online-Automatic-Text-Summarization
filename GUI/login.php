@@ -30,7 +30,7 @@ require_once 'header.php';
 
 
 
-<div class="limiter" style="padding: 50px;">
+<div class="limiter" style="padding: 50px; 	font-family: Poppins-Regular, sans-serif;">
 	<div class="container-login100">
 		<div class="wrap-login100">
 
@@ -38,7 +38,7 @@ require_once 'header.php';
 				<span class="login100-form-title p-b-43">
 					Log In
 				</span>
-
+				<br>
 
 				<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 					<input class="input100" type="email" name="email" placeholder="email" />
