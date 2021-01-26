@@ -69,16 +69,30 @@ $results = current($db->find($sql));
 <h3>Update Data</h3>
 
 <form action="profile.php?action=edit&id=<?php echo $results['id']; ?>" method="POST" type="text">
+    <table border='1'>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Birthday</th>
+            <th>Update</th>
 
-    <?php echo $results['id']; ?>
-    <input type="text" name="name" value="" placeholder="Enter name">
-    <input type="text" name="lastname" value="" placeholder="Enter lastname">
-    <?php echo $results['email']; ?>
-    <input type="password" name="password" placeholder="password" data-validate="Password is required">
-    <input type="text" name="gender" value="" placeholder="Enter gender">
-    <input type="date" name="birthdate" value="" placeholder="Enter birthdate">
-    <input type="submit" name="update" value="update">
+        </tr>
+        <tr>
 
+            <td><?php echo $results['id']; ?></td>
+            <td><input type="text" name="name" value="" placeholder="Enter name"></td>
+            <td><input type="text" name="lastname" value="" placeholder="Enter lastname"></td>
+            <td><?php echo $results['email']; ?></td>
+            <td><input type="password" name="password" placeholder="password" data-validate="Password is required"></td>
+            <td><input type="text" name="gender" value="" placeholder="Enter gender"></td>
+            <td><input type="date" name="birthdate" value="" placeholder="Enter birthdate"></td>
+            <td><input type="submit" name="update" value="update"></td>
+        </tr>
+    </table>
 </form>
 <br>
 <br>
