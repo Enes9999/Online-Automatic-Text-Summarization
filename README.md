@@ -24,4 +24,4 @@ Online Automatic Text Summarization allows the user to sign up for an account. F
 ## Copyrights
 - Arta Mjeku, UBT 2021
 - Enes Pireva, UBT 2021
-- Shuajb Qerimi, UBT 2021# Online-Automatic-Text-Summarization
+- Shuajb Qerimi, UBT 2021
