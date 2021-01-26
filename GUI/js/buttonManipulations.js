@@ -6,6 +6,7 @@ function ShowAndHide() {
 
     } else {
         x.style.display = 'none';
+
     }
 }
 // search for words/keywords button
@@ -13,8 +14,8 @@ function HideAndShow(){
 	var x = document.getElementById('keywordSection');
 	if(x.style.display =='none'){
 		x.style.display = 'block';
-		
 	}else{
 		x.style.display='none';
 	}
 }
+

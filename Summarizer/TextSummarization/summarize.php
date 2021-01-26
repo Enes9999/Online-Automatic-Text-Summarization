@@ -15,15 +15,15 @@
     error_reporting(-1);
     
     // include all necessary functions
-    include "inverse_sentence_distribution.php";
-    include "match.php";
-    include "pageRanks_from_wordWeights.php";
-    include "search.php";
-    include "sentences_from_doc.php";
-    include "similarity_between_sentences.php";
-    include "term_distribution.php";
-    include "terms_from_sentences.php";
-    include "word_weight_from_TDandISD.php";
+    include "../../Summarizer/Content/inverse_sentence_distribution.php";
+    include "../../Summarizer/TextSummarization/match.php";
+    include "../../Summarizer/TextSummarization/pageRanks_from_wordWeights.php";
+    include "../../Summarizer/Content/search.php";
+    include "../../Summarizer/Content/sentences_from_doc.php";
+    include "../../Summarizer/Content/similarity_between_sentences.php";
+    include "../../Summarizer/TextSummarization/term_distribution.php";
+    include "../../Summarizer/Content/terms_from_sentences.php";
+    include "../../Summarizer/TextSummarization/word_weight_from_TDandISD.php";
     
     // get the text
     $text = $_POST["text"];

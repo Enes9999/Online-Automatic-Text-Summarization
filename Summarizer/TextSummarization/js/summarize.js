@@ -38,7 +38,7 @@ function summarize() {
                 summary = "no response";
             }
         };
-        request.open("POST", "php/summarize.php", false);
+        request.open("POST", "../Summarizer/TextSummarization/summarize.php", false);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send("text=" + encodeURIComponent(doc) + "&others=" + encodeURIComponent(JSON.stringify(other_docs)) + "&perc=" + percent);
         

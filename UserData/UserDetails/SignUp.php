@@ -1,28 +1,26 @@
 <?php
-    require('../Storage/db.php');
-    // When form submitted, insert values into the database.
-    if (isset($_REQUEST['email'])) {
-        // removes backslashes
-        $email = stripslashes($_REQUEST['email']);
-        //escapes special characters in a string
-        $email = mysqli_real_escape_string($con, $email);
+require_once '../Storage/Database.php';
 
-        $name = stripslashes($_REQUEST['name']);
-        $name = mysqli_real_escape_string($con, $name);
-        
-        $lastname = stripslashes($_REQUEST['lastname']);
-    	$lastname = mysqli_real_escape_string($con, $lastname);
+class Registration {
+    public static function signup($data) {
+        $db = Database::getInstance();
 
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($con, $password);
+        if(!isset($data['email']) || !isset($data['name']) || !isset($data['lastname']) || !isset($data['password']) || !isset($data['gender']) || !isset($data['date'])) {
+            return false;            
+        }
+
+        $name = $data['name'];
+        $lastname = $data['lastname'];
+        $email = $data['email'];
+        $password = $data['password'];
+        $gender = $data['gender'];
+        $birthdate = $data['date'];
+
         
-        $gender = stripslashes($_REQUEST['gender']);
-        $gender = mysqli_real_escape_string($con, $gender);
-        
-        $birthdate = date("Y-m-d H:i:s");
-        $query    = "INSERT into `users` (name, lastname, email, password, gender, birthdate)
-                     VALUES ('$name', '$lastname' , '$email', '$password', '$gender', '$birthdate')";
-        $result   = mysqli_query($con, $query);
+        $sql = "INSERT INTO users SET name = '$name', lastname = '$lastname', email = '$email', password = '$password', gender = '$gender', birthdate = '$birthdate';";
+                     
+        $result = $db->query($sql);
+
         if ($result) {
             echo "<div class='login100-form validate-form'>
                   <h3>You are registered successfully.</h3><br/>
@@ -34,6 +32,8 @@
                   <p class='link'>Click here to <a href='signup.php'>signup</a> again.</p>
                   </div>";
         }
-    } else {
+
+        return $result;
     }
-?>
+} 
+
