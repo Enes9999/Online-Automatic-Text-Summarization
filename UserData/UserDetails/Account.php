@@ -5,19 +5,22 @@ require_once '../Storage/Database.php';
 
 // Authentication
 // Authorization
-class Auth {
+class Auth
+{
 
     /**
      * returns authenticated user
      */
-    public static function user() {
+    public static function user()
+    {
         return isset($_SESSION['user']) ? $_SESSION['user'] : null;
     }
 
     /**
      * checks if user is authenticated 
      */
-    public static function isLoggedIn() {
+    public static function isLoggedIn()
+    {
         return static::user() !== null;
     }
 
@@ -26,13 +29,14 @@ class Auth {
     /**
      * process user authentication
      */
-    public static function login($data) {
+    public static function login($data)
+    {
         $db = Database::getInstance();
 
-        if(!isset($data['email']) || !isset($data['password'])) {
-            return false;            
+        if (!isset($data['email']) || !isset($data['password'])) {
+            return false;
         }
-        
+
         $email = $data['email'];
         $password = $data['password'];
 
@@ -48,67 +52,51 @@ class Auth {
 }
 
 
-class Profile {
-    public static function delete($id) {
+class Profile
+{
+    public static function delete($id)
+    {
         $db = Database::getInstance();
-    
+
         $sql = "DELETE FROM users WHERE id = {$id}";
         $result = $db->query($sql);
-    
+
         return $result;
     }
-    
-    public static function edit($id) {
-        $db = Database::getInstance();
-    
 
-        $id = $_GET['id']; // get id through query string
-
-        $qry = "SELECT * from users WHERE id = {$id}"; // select query
-
-        $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-
-        $data = mysqli_fetch_array($qry);
-         
-
-       
+    public static function edit($id)
+    {
 
 
-        // $result = $db->query($sql);
-    
-        if(isset($_POST['update'])) // when click on Update button
-        {
-            $name = $_POST['name'];
-            $lastname = $_POST['lastname'];
-            $email= $_POST['email'];
-            $password = $_POST['password'];
-            $gender = $_POST['gender'];
-            $birthdate = $_POST['birthdate'];
-            
-            $edit = mysqli_query($db,"update users set name='$name', lastname='$lastname', email='$email', password='$password',
-            gender='$gender', birthdate='$birthdate' where id='$id'");
-            
-            if($edit)
-            {
-                mysqli_close($db); // Close connection
-                header("location: profile.php"); // redirects to all records page
-                exit;
-            }
-            else
-            {
-                echo mysqli_error();
-            }    	
+        $name = $_POST['name'];
+        $lastname = $_POST['lastname'];
+        $password = $_POST['password'];
+        $gender = $_POST['gender'];
+        $birthdate = $_POST['birthdate'];
+
+        // $sql = "UPDATE INTO users (name, lastname, password, gender, birthdate) VALUES ('" . $name . "', '" . $lastname .  "','" . $password . "', '" . $gender . "', '" . $birthdate . "');";
+
+        $sql = "UPDATE users SET name='$name', lastname='$lastname', 
+        password='$password', gender='$gender',
+        birthdate='$birthdate' WHERE id = '" . $_SESSION['user']['id'] . "'";
+
+
+
+        $link = mysqli_connect("localhost", "root", "", "onlinetextsummarization");
+
+        // Check connection
+        if ($link === false) {
+            die("ERROR: Could not connect. " . mysqli_connect_error());
         }
-        
+
+        // Attempt update query execution
+        if (mysqli_query($link, $sql)) {
+            echo "Records were updated successfully.";
+        } else {
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+        }
+
+        // Close connection
+        mysqli_close($link);
     }
-
 }
-
-?>
-
-
-
-
-
-
-   

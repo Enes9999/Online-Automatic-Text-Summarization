@@ -35,7 +35,7 @@ if (isset($_REQUEST['action'])) {
 
 <div id="main">
 
-	
+
 
 	<br><br><br><br>
 
@@ -66,7 +66,7 @@ if (isset($_REQUEST['action'])) {
 
 		<!-- butoni per me modifiku perqindjen -->
 		<button id="close-image" style="margin-left: 440px;" onclick="ShowAndHide()"><img src="images/discount.png" width="50" height="50"></button>
-		<input id="maxSentenceCount"  type="range" min="1" max="100" value="50" style="width:50%; display: none; margin-left: 20%; color: yellow;">
+		<input id="maxSentenceCount" type="range" min="1" max="100" value="50" style="width:50%; display: none; margin-left: 20%; color: yellow;">
 		<!-- butoni per me modifiku perqindjen -->
 
 		<!-- butoni per me kerku keywordsa  -->
@@ -75,10 +75,11 @@ if (isset($_REQUEST['action'])) {
 		<form style="display: none;margin-left: 30px;" id="keywordSection">
 			<br>
 			<p style=" color: #808080; margin-left: 84px;">Type the words:
-				<input type="text" name="keywords" id ="txt1" size="20" style="border:1px solid black; margin-left: 10px;"><button type="button" name="submit" onclick="findKeywords()" value="Go" style="width: 50px; height: 20px; border-radius: 30px; background-color: blue; text-align: center; margin-left: 20px;">Go</button>	</p>
-				<br> <br>
+				<input type="text" name="keywords" id="txt1" size="20" style="border:1px solid black; margin-left: 10px;"><button type="button" name="submit" onclick="findKeywords()" value="Go" style="width: 50px; height: 20px; border-radius: 30px; background-color: blue; text-align: center; margin-left: 20px;">Go</button>
+			</p>
+			<br> <br>
 
-				
+
 		</form>
 		<!-- butoni per me kerku keywordsa  -->
 
@@ -86,8 +87,9 @@ if (isset($_REQUEST['action'])) {
 		<form method="POST" action="index.php?action=history">
 
 			<textarea name="history" id="summary" rows="18" cols="80" readonly></textarea>
-			<button type="submit" name="submit">asdasd</button>
-			
+			<br>
+			<button type="submit" name="submit" class="butonihistori">Save to history</button>
+
 
 		</form>
 
