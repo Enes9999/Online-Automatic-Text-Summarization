@@ -31,7 +31,7 @@
 					<span class="login100-form-title p-b-43">
 						Sign Up
 					</span>
-
+					<br>
 
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="name">
@@ -76,7 +76,7 @@
 
 
 					<div class="text-center p-t-46 p-b-20">
-						<input class="signUp100-form-btn" type="submit" id="login-btn" value="Sing up" name="submit" />
+						<input class="signUp100-form-btn" type="submit" id="login-btn" value="Sign up" name="submit" />
 					</div>
 
 				</form>

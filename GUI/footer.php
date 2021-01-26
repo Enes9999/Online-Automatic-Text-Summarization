@@ -1,3 +1,9 @@
+<footer style="text-align: center; font-family: arial; margin-top: 100px;color:#808080;border-top: 1px solid black; border-color: lightgrey; font-size: 14px; ">
+		<p id="footer" style="margin-top: 10px;">
+			© All rights reserved. January, 2021
+		</p>
+	</footer>
+
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <script src="vendor/bootstrap/js/popper.js"></script>
 <script src="js/main.js"></script>

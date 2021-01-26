@@ -36,8 +36,7 @@ if (isset($_REQUEST['action'])) {
 <div id="main">
 
 
-
-	<br><br><br><br>
+	<br><br>
 
 
 
@@ -55,7 +54,8 @@ if (isset($_REQUEST['action'])) {
 
 	<div class="summaryGenerated">
 		<h1> <b>SUMMARY<b></h1>
-		<h3> <b> KEYWORDS: </b> </h3>
+		<h3> <b> KEYWORDS: </b> </h3><br>
+		<textarea rows="2" cols="1" readonly id="iputi" onmouseover="Keywordss()" style="margin-left: 100px;"></textarea>	<br>	
 		<h3>Compressed Text:<span id="countgenerated">0</span>/<span id="count">0</span></h3>
 
 
@@ -66,11 +66,16 @@ if (isset($_REQUEST['action'])) {
 
 		<!-- butoni per me modifiku perqindjen -->
 		<button id="close-image" style="margin-left: 440px;" onclick="ShowAndHide()"><img src="images/discount.png" width="50" height="50"></button>
-		<input id="maxSentenceCount" type="range" min="1" max="100" value="50" style="width:50%; display: none; margin-left: 20%; color: yellow;">
+		
 		<!-- butoni per me modifiku perqindjen -->
 
 		<!-- butoni per me kerku keywordsa  -->
 		<button id="close-image" onclick="HideAndShow()" style="margin-left: 0px;"><img src="images/highlighter.png" width="50" height="50"></button>
+
+		<br><br>
+		
+		<input id="maxSentenceCount" type="range" min="1" max="100" value="50"style="width:50%; display: none; margin-left: 20%; color: yellow;">
+	
 		<br>
 		<form style="display: none;margin-left: 30px;" id="keywordSection">
 			<br>
@@ -84,16 +89,17 @@ if (isset($_REQUEST['action'])) {
 		<!-- butoni per me kerku keywordsa  -->
 
 		<br>
-		<form method="POST" action="index.php?action=history">
+		<form method="POST" action="index.php?action=history" style="margin-left: 20px; margin-right: 50px;">
 
-			<textarea name="history" id="summary" rows="18" cols="80" readonly></textarea>
-			<br>
-			<button type="submit" name="submit" class="butonihistori">Save to history</button>
+			<textarea name="history" id="summary" rows="18" cols="50" readonly></textarea>
+			<br><br><br><br><br><br><br><br>
+			<button type="submit" name="submit" class="butonihistori" id="historyButton">Save to history</button>
 
 
 		</form>
 
 	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br>
 	<script type="text/javascript" src="js/buttonManipulations.js"> </script>
 
 	<!-- veq let qellon qaty -->
@@ -101,6 +107,7 @@ if (isset($_REQUEST['action'])) {
 	<!-- veq let qellon qaty -->
 
 	<script src="../Summarizer/Content/js/countwords.js"></script>
+	<script type="text/javascript" src="C:\Users\Arta\Desktop\xampp\htdocs\OATS1\Summarizer\TextSummarization\js\summarize.js"></script>
 
 	<?php
 	require_once "./footer.php";
