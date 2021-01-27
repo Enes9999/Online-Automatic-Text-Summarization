@@ -1,8 +1,4 @@
-/*
- *
- *  CALLS THE SUMMARIZER
- *
- */
+
 
 function summarize() {
     
