@@ -1,6 +1,6 @@
 var GLOBALS = {
     spinner : "",
-    doc_count : 20, // number of docs in folder to compare
+    doc_count : 20, 
     replacements : {
         "Rep" : /Rep\./g,
         "US" : /U\.S\./g,
@@ -20,8 +20,8 @@ var GLOBALS = {
         "October" : /oct\./gi,
         "November" : /nov\./gi,
         "December" : /dec\./gi,
-        '"' : new RegExp(String.fromCharCode(8221) + "|" + String.fromCharCode(8220), "g"), // replace any other types of double quotes w/ regular double quote
-        "'" : new RegExp(String.fromCharCode(8216) + "|" + String.fromCharCode(8217), "g"), // replace any other types of single quotes w/ reqular single quote
-        "" : /[A-Z]\.([A-Z]\.)?/g // replace any more remaining two letter abbreviations with nothing (names)
+        '"' : new RegExp(String.fromCharCode(8221) + "|" + String.fromCharCode(8220), "g"),
+        "'" : new RegExp(String.fromCharCode(8216) + "|" + String.fromCharCode(8217), "g"), 
+        "" : /[A-Z]\.([A-Z]\.)?/g 
     }
 };

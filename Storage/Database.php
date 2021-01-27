@@ -7,10 +7,8 @@ define("DB_DATABASE", "onlinetextsummarization");
 
 class Database {
 
-    // DB Connection
     protected $db = null; 
 
-    // Object Instance
     protected static $instance = null; 
 
 

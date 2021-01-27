@@ -1,32 +1,18 @@
 <?php
 
-    /*
-     *
-     *  GENERATES SUMMARY OF TEXT
-     *
-     *  INPUT: (POST) THE ACTUAL TEXT
-     *
-     *  OUPTUT: THE SUMMARIZED TEXT
-     *
-     */
-    
-    // get any errors
     ini_set('display_errors', true);
     error_reporting(-1);
     
-    // include all necessary functions
     include "../../Summarizer/Content/Inverse_Sentence_Distribution.php";
     include "../../Summarizer/Content/Sentence.php";
     include "../../Summarizer/Content/Text.php";
     include "../../Summarizer/Paragraph.php";
     include "../../Summarizer/Content/Word.php";
     
-    // get the text
     $text = $_POST["text"];
     $other_docs = json_decode($_POST["others"]);
     $percent = intval($_POST["perc"]);
     
-    // generate array of sentences from the text
     $sentences = sentences_from_doc($text);
     $terms = terms_from_sentences($sentences);
     $td = term_distribution($terms, 1);
@@ -54,7 +40,6 @@
     }
     
     echo $summary;
-    //var_dump($td);
 
 
     function word_weight_from_TDandISD($terms, $td, $isd){
@@ -81,7 +66,6 @@
         
         $pageranks = array();
         
-        // initial pageranks (1/total_number_of_sentences)
         for ($i = 0; $i < count($ww); $i++){
             array_push($pageranks, 1/count($ww));
         }
@@ -92,18 +76,13 @@
                 $sum = 0;
                 for ($secnd_sent = 0; $secnd_sent < count($ww); $secnd_sent++){
                     if ($first_sent !== $secnd_sent){
-                        // get similarity between first and second sentences
                         $Wji = similarity_between_sentences($ww[$first_sent], $ww[$secnd_sent]);
                         $denominator_sum = 0;
                         
-                        // get similarity between sentence 2 and every other sentence pointing to it
                         for ($third_sent = 0; $third_sent < count($ww); $third_sent++){
                             if ($third_sent !== $secnd_sent) $denominator_sum += similarity_between_sentences($ww[$secnd_sent], $ww[$third_sent]);
                         }
-                        
-                        // calculate sum from similarity between product of all similarities between
-                        // sentence 1 and 2, the PR of sentence2, divided by the sum of all similarities
-                        // between sentence2 and all other sentences
+
                         if ($denominator_sum != 0) $sum += $Wji*$pageranks[$secnd_sent]/$denominator_sum;
                     }
                 }

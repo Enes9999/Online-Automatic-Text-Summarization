@@ -8,7 +8,7 @@ class Deactivate
         $db = Database::getInstance();
 
         $sql = "DELETE FROM users WHERE id = {$id}";
-        $result = $db->query($sql);
+        return $result = $db->query($sql);
 
         return $result;
     }

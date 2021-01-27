@@ -1,4 +1,3 @@
-// counteri i words
 var count = document.getElementById('count');
 var input = document.getElementById('doc');
 
@@ -16,9 +15,7 @@ input.addEventListener('keyup', function(e){
     }
     count.innerText = wordCount;
   }
-//   counteri i words
 
-// counteri masi tgjenerohet
 var countgenerated = document.getElementById('countgenerated');
 var inputgenerated = document.getElementById('summary');
 var inputge = document.getElementById('mouse');
@@ -37,4 +34,3 @@ inputge.addEventListener('mouseover', function(e){
     }
     countgenerated.innerText = wordCountgenerated;
   }
-  // counteri masi tgjenerohet

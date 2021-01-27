@@ -40,15 +40,13 @@
 			return true;
 		};
 	</script>
-	<!--js scripts  -->
 
-	<!--signup css  -->
 	<style type="text/css">
 		.signUp100-form-btn:hover {
 			background-color: blue;
 		}
 	</style>
-	<!--signup css  -->
+	
 
 </head>
 

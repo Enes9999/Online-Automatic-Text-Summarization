@@ -4,9 +4,7 @@ require_once '../Storage/Database.php';
 
 class History {
 
-    /**
-     * 
-     */
+  
     public static function saveHistory($data) {
         $db = Database::getInstance();
 
@@ -26,9 +24,7 @@ class History {
     }
 
     
-    /**
-     * Deletes specific Contact by ID
-     */
+  
     public static function deleteHistory($id) {
         $db = Database::getInstance();
 

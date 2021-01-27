@@ -1,4 +1,3 @@
-// read text file containing other documents for IDD comparison
 function readtxtfile(file){
     var txt = "";
     var rawfile = new XMLHttpRequest();

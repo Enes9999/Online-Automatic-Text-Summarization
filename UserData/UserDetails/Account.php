@@ -3,22 +3,17 @@ session_start();
 require_once '../Storage/Database.php';
 
 
-// Authentication
-// Authorization
+
 class Auth
 {
 
-    /**
-     * returns authenticated user
-     */
+  
     public static function user()
     {
         return isset($_SESSION['user']) ? $_SESSION['user'] : null;
     }
 
-    /**
-     * checks if user is authenticated 
-     */
+ 
     public static function isLoggedIn()
     {
         return static::user() !== null;
@@ -26,9 +21,7 @@ class Auth
 
 
 
-    /**
-     * process user authentication
-     */
+    
     public static function login($data)
     {
         $db = Database::getInstance();

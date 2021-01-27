@@ -1,15 +1,6 @@
 <?php
 
-    /*
-     *
-     *  PERFORMS A COSINE SIMILARITY TEST BETWEEN TWO SENTENCE VECOTRS
-     *
-     *  INPUT: SENTENCE1 AS ARRAY OF TERMS; SENTENCE2 AS ARRAY OF TERMS
-     *
-     *  OUTPUT: SIMILARITY AS FLOAT (RANGE FROM 0 TO 1)
-     *
-     */
-    
+  
     function similarity_between_sentences($first, $secnd){
         
         $dotProductSum = 0;

@@ -24,7 +24,6 @@ require_once 'header.php';
 ?>
 
 
-<!-- login code -->
 
 
 

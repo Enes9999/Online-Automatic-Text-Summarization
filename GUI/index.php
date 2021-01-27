@@ -18,7 +18,7 @@ if (isset($_REQUEST['action'])) {
 <script>
 	window.onload = function() {
 
-		// initialize all textareas
+		
 		document.getElementById("doc").value = readtxtfile("../docs/doc.txt");
 		for (var i = 2; i < GLOBALS.doc_count + 1; i++) {
 			var new_doc = document.createElement("div");
@@ -60,16 +60,11 @@ if (isset($_REQUEST['action'])) {
 
 
 
-		<!-- veq let qellon qaty -->
 		<div id="other_docs" style="display: none;"></div>
-		<!-- veq let qellon qaty -->
 
-		<!-- butoni per me modifiku perqindjen -->
 		<button id="close-image" style="margin-left: 440px;" onclick="ShowAndHide()"><img src="images/discount.png" width="50" height="50"></button>
 
-		<!-- butoni per me modifiku perqindjen -->
 
-		<!-- butoni per me kerku keywordsa  -->
 		<button id="close-image" onclick="HideAndShow()" style="margin-left: 0px;"><img src="images/highlighter.png" width="50" height="50"></button>
 
 		<br><br>
@@ -86,7 +81,6 @@ if (isset($_REQUEST['action'])) {
 
 
 		</form>
-		<!-- butoni per me kerku keywordsa  -->
 
 		<br>
 		<form method="POST" action="index.php?action=history" style="margin-left: 20px; margin-right: 50px;">
