@@ -31,7 +31,6 @@
 	<script src="../Summarizer/Content/js/GLOBALS.js"></script>
 	<script src="../Summarizer/Content/js/readtxtfile.js"></script>
 	<script src="../Summarizer/Content/js/replacements.js"></script>
-	<script src="../Summarizer/Content/js/reveal_docs.js"></script>
 	<script src="js/spin.js"></script>
 	<script src="../Summarizer/TextSummarization/js/summarize.js"></script>
 

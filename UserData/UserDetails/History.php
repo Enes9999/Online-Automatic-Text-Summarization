@@ -7,7 +7,7 @@ class History {
     /**
      * 
      */
-    public static function create($data) {
+    public static function saveHistory($data) {
         $db = Database::getInstance();
 
         if(!isset($data['history'])) {
@@ -29,10 +29,10 @@ class History {
     /**
      * Deletes specific Contact by ID
      */
-    public static function delete($id) {
+    public static function deleteHistory($id) {
         $db = Database::getInstance();
 
-        $sql = "DELETE FROM history WHERE id = {$id}";
+        $sql = "DELETE FROM history WHERE IDHISTORY = {$id}";
         $result = $db->query($sql);
 
         return $result;

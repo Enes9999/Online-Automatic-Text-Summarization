@@ -1,6 +1,8 @@
 <?php
 require_once 'header.php';
 require_once '../Storage/Database.php';
+require_once "../UserData/Profile.php";
+require_once "../UserData/Deactivate.php";
 require_once "../UserData/UserDetails/Account.php";
 require_once "../UserData/UserDetails/History.php";
 
@@ -10,14 +12,14 @@ if (isset($_REQUEST['action'])) {
     switch ($_REQUEST['action']) {
         case 'user.delete':
             header("Location: index.php");
-            $valid = Profile::delete($_REQUEST['id']);
+            $valid = Deactivate::deleteUser($_REQUEST['id']);
             if (!$valid) {
                 $error = 'Deleting users failed.';
             }
             session_destroy();
             break;
         case 'history.delete':
-            $valid = History::delete($_REQUEST['id']);
+            $valid = History::deleteHistory($_REQUEST['id']);
             if (!$valid) {
                 $error = 'Deleting history failed.';
             }
@@ -32,13 +34,14 @@ if (isset($_REQUEST['action'])) {
 }
 $db = Database::getInstance();
 $history = History::getHistory();
+$show = Profile::showprofile();
 
-$sql = " SELECT id, name, lastname, email, password, gender, birthdate FROM users WHERE id = '" . $_SESSION['user']['id'] . "'";
-$results = current($db->find($sql));
+
 
 
 ?>
 <h1>Profili</h1>
+
 <table border='1'>
     <tr>
         <th>ID</th>
@@ -54,21 +57,20 @@ $results = current($db->find($sql));
 
 
     <tr>
-        <td><?php echo $results['id']; ?></td>
-        <td><?php echo $results['name']; ?></td>
-        <td><?php echo $results['lastname']; ?></td>
-        <td><?php echo $results['email']; ?></td>
-        <td><?php echo $results['password']; ?></td>
-        <td><?php echo $results['gender']; ?></td>
-        <td><?php echo $results['birthdate']; ?></td>
-        <td><a href="profile.php?action=user.delete&id=<?php echo $results['id']; ?>">Delete</a></td>
+        <td><?php echo $show['id']; ?></td>
+        <td><?php echo $show['name']; ?></td>
+        <td><?php echo $show['lastname']; ?></td>
+        <td><?php echo $show['email']; ?></td>
+        <td><?php echo $show['password']; ?></td>
+        <td><?php echo $show['gender']; ?></td>
+        <td><?php echo $show['birthdate']; ?></td>
+        <td><a href="profile.php?action=user.delete&id=<?php echo $show['id']; ?>">Delete</a></td>
     </tr>
 </table>
 <br>
-
 <h3>Update Data</h3>
 
-<form action="profile.php?action=edit&id=<?php echo $results['id']; ?>" method="POST" type="text">
+<form action="profile.php?action=edit&id=<?php echo $show['id']; ?>" method="POST" type="text">
     <table border='1'>
         <tr>
             <th>ID</th>
@@ -83,10 +85,10 @@ $results = current($db->find($sql));
         </tr>
         <tr>
 
-            <td><?php echo $results['id']; ?></td>
+            <td><?php echo $show['id']; ?></td>
             <td><input type="text" name="name" value="" placeholder="Enter name"></td>
             <td><input type="text" name="lastname" value="" placeholder="Enter lastname"></td>
-            <td><?php echo $results['email']; ?></td>
+            <td><?php echo $show['email']; ?></td>
             <td><input type="password" name="password" placeholder="password" data-validate="Password is required"></td>
             <td><input type="text" name="gender" value="" placeholder="Enter gender"></td>
             <td><input type="date" name="birthdate" value="" placeholder="Enter birthdate"></td>
@@ -100,6 +102,7 @@ $results = current($db->find($sql));
 <table border='1'>
     <tr>
         <th>History</th>
+        <th>ID History</th>
         <th>Delete</th>
         <th>Date</th>
     </tr>
@@ -108,7 +111,8 @@ $results = current($db->find($sql));
 
 
             <td><?php echo $histor['History']; ?></td>
-            <td><a href="profile.php?action=history.delete&id=<?php echo $results['id']; ?>">Delete</a></td>
+            <td><?php echo $histor['IDHISTORY']; ?></td>
+            <td><a href="profile.php?action=history.delete&id=<?php echo $histor['IDHISTORY']; ?>">Delete</a></td>
             <td><?php echo $histor['Date']; ?></td>
         </tr>
     <?php endforeach; ?>

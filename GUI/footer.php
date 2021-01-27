@@ -9,7 +9,8 @@
 <script src="js/main.js"></script>
 <script type="text/javascript" src="js/buttonManipulations.js"> </script>
 <script src="vendor/animsition/js/animsition.min.js"></script>
-<script src="js/findKeywords.js"></script>
+<script src="../Summarizer/TextSummarization/js/findKeywords.js"></script>
+<script src="../Summarizer/TextSummarization/js/Keywords.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="vendor/select2/select2.min.js"></script>
 <script src="vendor/daterangepicker/moment.min.js"></script>

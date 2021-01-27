@@ -7,7 +7,7 @@ if (isset($_REQUEST['action'])) {
 	switch ($_REQUEST['action']) {
 		case 'history':
 			require_once "../UserData/UserDetails/History.php";
-			$valid = History::create($_POST);
+			$valid = History::saveHistory($_POST);
 			if (!$valid) {
 				$error = 'History failed.';
 			}
@@ -55,7 +55,7 @@ if (isset($_REQUEST['action'])) {
 	<div class="summaryGenerated">
 		<h1> <b>SUMMARY<b></h1>
 		<h3> <b> KEYWORDS: </b> </h3><br>
-		<textarea rows="2" cols="1" readonly id="iputi" onmouseover="Keywordss()" style="margin-left: 100px;"></textarea> <br>
+		<textarea rows="2" cols="1" readonly id="iputi" onmouseover="Keywords()" style="margin-left: 100px;"></textarea> <br>
 		<h3>Compressed Text:<span id="countgenerated">0</span>/<span id="count">0</span></h3>
 
 
@@ -96,11 +96,11 @@ if (isset($_REQUEST['action'])) {
 
 
 		<!--composition pattern - design paterni-->
-			<?php if (Auth::isLoggedIn()) : ?>
+			<?php if (Auth::isLoggedIn()) { ?>
 				<button type="submit" name="submit" class="butonihistori" id="historyButton">Save to history</button>
-			<?php else : ?>
-				
-			<?php endif; ?>
+			<?php }else {
+				echo 'Login to save history';
+			} ?>
 		<!--composition pattern - design paterni-->
 
 		</form>
@@ -109,9 +109,7 @@ if (isset($_REQUEST['action'])) {
 	<br><br><br><br><br><br><br><br><br><br><br><br>
 	<script type="text/javascript" src="js/buttonManipulations.js"> </script>
 
-	<!-- veq let qellon qaty -->
-	<div id="organized_terms" style="background: white;"></div>
-	<!-- veq let qellon qaty -->
+
 
 	<script src="../Summarizer/Content/js/countwords.js"></script>
 	<script type="text/javascript" src="C:\Users\Arta\Desktop\xampp\htdocs\OATS1\Summarizer\TextSummarization\js\summarize.js"></script>
