@@ -1,6 +1,6 @@
 <?php
 
-  
+  class SimilarityClass{
     function similarity_between_sentences($first, $secnd){
         
         $dotProductSum = 0;
@@ -26,5 +26,4 @@
         return ($magnitude[0] === 0 || $magnitude[1] === 0 ? 0 : $dotProductSum/sqrt($magnitude[0])/sqrt($magnitude[1]));
         
     }
-
-?>
+}

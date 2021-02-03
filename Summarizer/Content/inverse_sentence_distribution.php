@@ -1,13 +1,16 @@
 <?php
 
-
+class InverseClass{
     function inverse_sentence_distribution($terms, $other_docs){
-        
+        $SentenceInstance = new SentenceClass();
+        $InverseInstance = new InverseClass();
+        $WordInstance = new WordClass();
+
         $isd = array();
         
         $all_terms = array($terms);
         foreach ($other_docs as $doc){
-            array_push($all_terms, terms_from_sentences(sentences_from_doc($doc)));
+            array_push($all_terms, $WordInstance->terms_from_sentences($SentenceInstance->sentences_from_doc($doc)));
         }
         
         $doc_frequency_array = array();
@@ -31,7 +34,7 @@
             $sum = 0; 
             foreach ($doc_frequency_array as $doc_frequency){
                 $freq = 0;
-                if (array_key_exists($term, $doc_frequency)) $freq = $doc_frequency[$term]/words_in_doc($all_terms[$count++]);
+                if (array_key_exists($term, $doc_frequency)) $freq = $doc_frequency[$term]/$InverseInstance->words_in_doc($all_terms[$count++]);
                 $sum += $freq;
             }
             $sum /= count($doc_frequency_array);
@@ -40,7 +43,7 @@
             $newsum = 0;
             foreach ($doc_frequency_array as $doc_frequency){
                 $freq = 0;
-                if (array_key_exists($term, $doc_frequency)) $freq = $doc_frequency[$term]/words_in_doc($all_terms[$count++]);
+                if (array_key_exists($term, $doc_frequency)) $freq = $doc_frequency[$term]/$InverseInstance->words_in_doc($all_terms[$count++]);
                 $newsum += pow($freq-$sum,2)/$sum;
             }
             $isd[$term] = $newsum;
@@ -59,5 +62,5 @@
         }
         return $count;
     }
-
+}
 ?>

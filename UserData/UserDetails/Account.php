@@ -24,6 +24,7 @@ class Auth
     
     public static function login($data)
     {
+        
         $db = Database::getInstance();
 
         if (!isset($data['email']) || !isset($data['password'])) {
@@ -33,7 +34,7 @@ class Auth
         $email = $data['email'];
         $password = $data['password'];
 
-        $sql = "SELECT * FROM users WHERE email = '$email' LIMIT 1;";
+        $sql = $sql = "SELECT * FROM users WHERE email = '$email' LIMIT 1;";
         $result = current($db->find($sql));
         if ($result && $result['password'] == $password) {
             unset($result['password']);

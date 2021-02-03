@@ -1,5 +1,5 @@
 <?php
-
+    CLASS ParagraphClass{
     function term_distribution($terms, $sentences_per_paragraph){
 
         $td = array(); 
@@ -66,5 +66,6 @@
         return $td;
         
     }
+}
 
 ?>
